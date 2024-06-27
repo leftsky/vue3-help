@@ -1,6 +1,6 @@
 {
   "name": "vue3-help",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Vue3 帮助工程",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -21,8 +21,8 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "vite": "^5.3.1"
   },
-  "author": "Your Name <your@email.com>",
-  "license": "MIT",
+  "author": "leftsky <leftsky@vip.qq.com>",
+  "license": "AGPL-3.0",
   "keywords": [
     "vue3",
     "help",
