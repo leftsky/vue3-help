@@ -1,6 +1,6 @@
 {
   "name": "vue3-help",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "Vue3 帮助工程",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -9,16 +9,18 @@
     "dist"
   ],
   "scripts": {
+    "clean": "rd /s /q dist && mkdir dist",
+    "build": "tsc -p tsconfig.json",
     "dev": "vite",
-    "build": "vite build",
     "preview": "vite preview",
-    "prepare": "npm run build"
+    "prepare": "npm run clean && npm run build"
   },
   "peerDependencies": {
     "vue": "^3.4.21"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
+    "typescript": "^5.5.2",
     "vite": "^5.3.1"
   },
   "author": "leftsky <leftsky@vip.qq.com>",
@@ -28,5 +30,9 @@
     "help",
     "npm",
     "library"
-  ]
+  ],
+  "dependencies": {
+    "@babel/types": "^7.24.7",
+    "vue": "^3.4.21"
+  }
 }

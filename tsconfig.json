@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    // 输出目录
+    "module": "ESNext",
+    // ES模块
+    "target": "ESNext",
+    // 编译的目标是ES版本
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    // 编译需要的库文件
+    "moduleResolution": "node",
+    // 模块解析策略
+    "declaration": true,
+    // 生成声明文件
+    "removeComments": true
+    // 删除注释
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  // 需要编译的文件
+  "exclude": [
+    "node_modules"
+  ]
+  // 排除文件
+}
