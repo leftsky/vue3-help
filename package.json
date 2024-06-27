@@ -1,6 +1,6 @@
 {
   "name": "vue3-help",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Vue3 帮助工程",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -15,7 +15,7 @@
     "prepare": "npm run build"
   },
   "peerDependencies": {
-    "vue": "^3.3.11"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
