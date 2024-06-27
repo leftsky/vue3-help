@@ -1,6 +1,6 @@
 {
   "name": "vue3-help",
-  "version": "0.0.12",
+  "version": "0.0.14",
   "description": "Vue3 帮助工程",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -9,7 +9,7 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rd /s /q dist && mkdir dist",
+    "clean": "rimraf dist && mkdir dist",
     "build": "tsc -p tsconfig.json",
     "minify": "node minify.js",
     "dev": "vite",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
     "glob": "^10.4.2",
+    "rimraf": "^5.0.7",
     "terser": "^5.31.1",
     "typescript": "^5.5.2",
     "vite": "^5.3.1"
