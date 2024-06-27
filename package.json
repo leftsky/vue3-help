@@ -1,0 +1,25 @@
+{
+  "name": "vue3-help",
+  "version": "0.0.3",
+  "description": "Vue3 帮助工程",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.11"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "vite": "^5.3.1"
+  },
+  "author": "Your Name <your@email.com>",
+  "license": "MIT",
+  "keywords": ["vue3", "help", "npm", "library"]
+}
