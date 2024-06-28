@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 执行构建
-yarn build
+yarn prepare
 
 # 使用 node 加载更改 package.json 中的版本
 NEW_VERSION=$(node -p "require('./package.json').version.split('.').map((v, i) => i < 2 ? v : Number(v) + 1).join('.')")
