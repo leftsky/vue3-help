@@ -15,8 +15,9 @@
     // 模块解析策略
     "declaration": true,
     // 生成声明文件
-    "removeComments": true
+    "removeComments": true,
     // 删除注释
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src/**/*.ts"

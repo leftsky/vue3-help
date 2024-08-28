@@ -1,6 +1,6 @@
 {
   "name": "vue3-help",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Vue3 帮助工程",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -17,6 +17,13 @@
     "prepare": "npm run clean && npm run build && npm run minify"
   },
   "peerDependencies": {
+    "vue": "^3.4.21"
+  },
+  "dependencies": {
+    "@babel/types": "^7.24.7",
+    "dayjs": "^1.11.11",
+    "loadsh": "^0.0.4",
+    "md5": "^2.3.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {
@@ -37,12 +44,5 @@
     "help",
     "npm",
     "library"
-  ],
-  "dependencies": {
-    "@babel/types": "^7.24.7",
-    "dayjs": "^1.11.11",
-    "loadsh": "^0.0.4",
-    "md5": "^2.3.0",
-    "vue": "^3.4.21"
-  }
+  ]
 }

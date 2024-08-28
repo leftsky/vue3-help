@@ -82,8 +82,15 @@ const usePagination = (inOptions: partPaginationOptions) => {
     return 'more';
   });
   // 缓存下一页数据
-  let cachePageData: any = null;
-  let totalNum: string | number = 0;
+  let cachePageData: any = {};
+  const setCache = (page: number, data: any) => {
+    cachePageData[page] = data;
+  }
+  const getCache = (page: number) => {
+    return cachePageData[page];
+  }
+
+  let totalNum = ref<number>(0);
 
   // 设置fullList
   const setFullList = (newList: any) => {
@@ -122,14 +129,16 @@ const usePagination = (inOptions: partPaginationOptions) => {
 
   const cacheNextPage = (inParams: any = {}) => {
     if (!options.autoCacheNextPage) return;
-    cachePageData = null;
-    totalNum = 0;
+    const queryPage = curPage;
+    setCache(queryPage, null);
+    totalNum.value = 0;
     const params = Object.assign({}, options.initParams, inParams);
     params[options.pageSizeParam] = options.pageSize;
-    params[options.pageNumParam] = curPage;
+    params[options.pageNumParam] = queryPage;
     options.api(params).then((res: any) => {
-      cachePageData = dealData(res);
-      totalNum = res.total || res.count;
+      setCache(queryPage, dealData(res));
+      res?.total && (totalNum.value = Number(res?.total));
+      res?.count && (totalNum.value = Number(res?.count));
     });
   };
 
@@ -139,8 +148,9 @@ const usePagination = (inOptions: partPaginationOptions) => {
   const getNextPageData = (params: any) => {
     return new Promise(async (resolve, reject) => {
       if (options.autoCacheNextPage) {
-        if (await utils.waitAlive(() => cachePageData, 0.5)) {
-          return resolve(cachePageData);
+        const page = curPage;
+        if (await utils.waitAlive(() => getCache(page), 0.5)) {
+          return resolve(getCache(page));
         }
       }
       // 这里不用else，因为当上面失败时，会继续执行下面的请求
@@ -191,7 +201,7 @@ const usePagination = (inOptions: partPaginationOptions) => {
     if (flush) {
       // if (curPage !== 1) fullList.value = [];
       curPage = 1;
-      cachePageData = null;
+      setCache(curPage, null);
       isComplete.value = false;
       cacheNextPage(inParams);
     }
@@ -207,6 +217,8 @@ const usePagination = (inOptions: partPaginationOptions) => {
         .then((res: any) => {
           // 拉取解析好的数据；如果解析失败，则直接返回
           if (res === false) return reject(false);
+            res?.total && (totalNum.value = Number(res?.total));
+            res?.count && (totalNum.value = Number(res?.count));
           // const totalPage = Math.ceil(~~totalNum / options.pageSize);
           // 如果拉取到的数据列表为空，则说明已经全部拉取完毕
           if (res.length < options.pageSize) {
@@ -226,6 +238,7 @@ const usePagination = (inOptions: partPaginationOptions) => {
   };
 
   return {
+    totalNum,
     joinHead,
     nextPage,
     updateItem,
