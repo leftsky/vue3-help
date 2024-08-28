@@ -1,9 +1,9 @@
 {
   "name": "vue3-help",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Vue3 帮助工程",
   "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -22,7 +22,7 @@
   "dependencies": {
     "@babel/types": "^7.24.7",
     "dayjs": "^1.11.11",
-    "loadsh": "^0.0.4",
+    "lodash": "^4.17.21",
     "md5": "^2.3.0",
     "vue": "^3.4.21"
   },
