@@ -1,6 +1,6 @@
 {
   "name": "vue3-help",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Vue3 帮助工程",
   "main": "dist/index.js",
   "module": "dist/index.js",
